@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui';
-import { Heart, Palette } from 'lucide-react';
+import { Palette } from 'lucide-react';
 import { generateVibeText } from '@/services/ai';
-import BTCControl from '@/btccomponent';
 import Buymeacoffee from '@/CoffeeButton';
 
 const GRADIENTS = [

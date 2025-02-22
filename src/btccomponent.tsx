@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Bitcoin, Copy, Check, ExternalLink } from 'lucide-react';
 import { Alert } from '@/components/ui/alert';
