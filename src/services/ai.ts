@@ -28,6 +28,7 @@ Style Guidelines:
 - Preserve the writer's voice
 - Keep personal narrative elements
 - Maintain any temporal sequence
+- Make it vibe.
 
 Response Format:
 - Return 2-3 cohesive sentences
