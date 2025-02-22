@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui';
 import { Heart, Bitcoin, Palette } from 'lucide-react';
+import { generateVibeText } from '@/services/ai';
 
 const GRADIENTS = [
   { name: 'Classic Synthwave', from: 'from-purple-900', via: 'via-pink-800', to: 'to-purple-900', text: 'from-pink-500 via-purple-400 to-pink-500' },
@@ -14,14 +15,34 @@ const VibeWriter = () => {
   const [outputText, setOutputText] = useState('');
   const [currentGradient, setCurrentGradient] = useState(0);
   const [showPalette, setShowPalette] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [error, setError] = useState('');
 
   const gradient = GRADIENTS[currentGradient];
 
-  // Simulate AI processing (in reality, this would call your AI service)
+  const generateText = async () => {
+    if (!inputText.trim()) return;
+
+    setIsGenerating(true);
+    setError('');
+
+    try {
+      const generatedText = await generateVibeText(inputText);
+      setOutputText(generatedText);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  // Auto-generate when input changes
   useEffect(() => {
     const timer = setTimeout(() => {
-      setOutputText(inputText.split('\n').join(' '));
-    }, 500);
+      if (inputText.trim()) {
+        generateText();
+      }
+    }, 1000);
     return () => clearTimeout(timer);
   }, [inputText]);
 
@@ -104,10 +125,11 @@ const VibeWriter = () => {
               <div className="h-full p-4 md:p-6">
                 <h2 className="text-xl md:text-2xl font-semibold text-pink-300 mb-4">Your Thoughts</h2>
                 <textarea
-                  className="w-full h-[calc(100%-4rem)] bg-transparent text-pink-100 placeholder-pink-300/50 border-0 focus:ring-2 focus:ring-pink-500/30 rounded-lg p-4 resize-none"
+                  className="w-full h-[calc(100%-4rem)] bg-transparent text-pink-100 placeholder-pink-300/50 border-0 focus:ring-2 focus:ring-pink-500/30 rounded-lg p-4 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Enter your stream of consciousness..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
+                  disabled={isGenerating}
                 />
               </div>
             </Card>
@@ -117,11 +139,23 @@ const VibeWriter = () => {
               <div className="h-full p-4 md:p-6">
                 <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4">Composed Text</h2>
                 <div className="h-[calc(100%-4rem)] overflow-auto p-4 text-purple-100">
-                  {outputText ||
-                    <span className="text-purple-300/50 italic">
-                      Your composed text will appear here...
-                    </span>
-                  }
+                  {isGenerating ? (
+                    <div className="flex items-center justify-center h-full space-x-3">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-300"></div>
+                      <span className="text-purple-300">Generating vibe...</span>
+                    </div>
+                  ) : error ? (
+                    <div className="text-red-400 bg-red-900/20 p-4 rounded-lg">
+                      <p className="font-semibold mb-1">Error</p>
+                      <p>{error}</p>
+                    </div>
+                  ) : (
+                    outputText || (
+                      <span className="text-purple-300/50 italic">
+                        Your composed text will appear here...
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
             </Card>
