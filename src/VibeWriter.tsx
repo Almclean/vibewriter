@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui';
-import { Heart, Bitcoin, Palette } from 'lucide-react';
+import { Heart, Palette } from 'lucide-react';
 import { generateVibeText } from '@/services/ai';
+import BTCControl from '@/btccomponent';
+import Buymeacoffee from '@/CoffeeButton';
 
 const GRADIENTS = [
   { name: 'Classic Synthwave', from: 'from-purple-900', via: 'via-pink-800', to: 'to-purple-900', text: 'from-pink-500 via-purple-400 to-pink-500' },
@@ -160,31 +162,7 @@ const VibeWriter = () => {
               </div>
             </Card>
           </div>
-
-          {/* Donation Section */}
-          <div className="mt-6 md:mt-8 text-center relative z-10">
-            <Card className="inline-block bg-white/5 backdrop-blur-sm border-pink-500/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-[90vw] mx-auto">
-              <div className="p-4 md:p-6 flex flex-col items-center gap-4">
-                <h3 className="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
-                  Support VibeWriter
-                </h3>
-                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-4">
-                  <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity">
-                    <Heart size={20} />
-                    <span>Donate</span>
-                  </button>
-                  <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity">
-                    <Bitcoin size={20} />
-                    <span>Send BTC</span>
-                  </button>
-                </div>
-                <p className="text-pink-200/70 text-sm mt-2">
-                  Help us keep the synthwave vibes flowing ✨
-                </p>
-              </div>
-            </Card>
-          </div>
-
+          <Buymeacoffee />
           {/* Privacy Disclaimer */}
           <div className="mt-8 text-center mb-4">
             <Card className="inline-block bg-white/5 backdrop-blur-sm border-purple-500/10 shadow-sm max-w-[90vw] mx-auto">
