@@ -59,7 +59,7 @@ const VibeWriter = () => {
               <div className={`absolute -inset-1 blur-xl bg-gradient-to-r ${gradient.text} opacity-40`} />
 
               {/* Main title with Orbitron font */}
-              <h1 className={`font-['Orbitron'] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r ${gradient.text} mb-2 relative tracking-wider`}>
+              <h1 className={`font-['Orbitron'] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r ${gradient.text} mb-2 relative tracking-wider`}>
                 VIBE<span className="font-light">WRITER</span>
               </h1>
 
@@ -90,7 +90,7 @@ const VibeWriter = () => {
           </div>
 
           {/* Gradient Picker */}
-          <div className="fixed md:absolute top-4 right-4 z-50">
+          <div className="fixed md:absolute top-2 right-2 sm:top-4 sm:right-4 z-50">
             <button
               onClick={() => setShowPalette(!showPalette)}
               className="p-2 rounded-full bg-white/10 backdrop-blur-lg hover:bg-white/20 transition-colors"
@@ -119,13 +119,13 @@ const VibeWriter = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-[calc(100vh-16rem)]">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-[calc(100vh-20rem)] sm:h-[calc(100vh-16rem)]">
             {/* Input Panel */}
             <Card className="w-full lg:w-1/2 bg-white/10 backdrop-blur-lg border-pink-500/20 shadow-xl shadow-purple-900/30">
               <div className="h-full p-4 md:p-6">
                 <h2 className="text-xl md:text-2xl font-semibold text-pink-300 mb-4">Your Thoughts</h2>
                 <textarea
-                  className="w-full h-[calc(100%-4rem)] bg-transparent text-pink-100 placeholder-pink-300/50 border-0 focus:ring-2 focus:ring-pink-500/30 rounded-lg p-4 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full h-[calc(100%-3rem)] sm:h-[calc(100%-4rem)] bg-transparent text-pink-100 placeholder-pink-300/50 border-0 focus:ring-2 focus:ring-pink-500/30 rounded-lg p-2 sm:p-4 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Enter your stream of consciousness..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
@@ -168,12 +168,12 @@ const VibeWriter = () => {
                 <h3 className="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
                   Support VibeWriter
                 </h3>
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                  <button className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg text-white font-medium hover:opacity-90 transition-opacity">
+                <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-4">
+                  <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity">
                     <Heart size={20} />
                     <span>Donate</span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg text-white font-medium hover:opacity-90 transition-opacity">
+                  <button className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity">
                     <Bitcoin size={20} />
                     <span>Send BTC</span>
                   </button>
