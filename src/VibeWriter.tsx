@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui';
 import { Heart, Bitcoin, Palette } from 'lucide-react';
 
