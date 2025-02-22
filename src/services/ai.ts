@@ -4,7 +4,7 @@ import { ChatPromptTemplate } from '@langchain/core/prompts';
 
 // Initialize the Anthropic model
 const model = new ChatAnthropic({
-    modelName: "claude-3-haiku-20240307",  // Using Haiku for faster responses
+    modelName: "claude-3-5-haiku-latest",  // Using Haiku for faster responses
     anthropicApiKey: import.meta.env.VITE_ANTHROPIC_API_KEY,
     maxTokens: 1024,
 });
