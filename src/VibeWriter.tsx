@@ -48,7 +48,7 @@ const VibeWriter = () => {
 
   return (
     <>
-      <div className={`min-h-screen bg-gradient-to-br ${gradient.from} ${gradient.via} ${gradient.to} p-4 md:p-6 transition-colors duration-700`}>
+      <div className={`min-h-screen bg-gradient-to-br ${gradient.from} ${gradient.via} ${gradient.to} p-4 md:p-6 transition-colors duration-700 overflow-x-hidden`}>
         <div className="max-w-7xl mx-auto relative">
           {/* Enhanced Header */}
           <div className="text-center mb-6 md:mb-8 relative py-8 md:py-12">
@@ -119,7 +119,7 @@ const VibeWriter = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-[calc(100vh-20rem)] sm:h-[calc(100vh-16rem)]">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 min-h-[50vh] lg:min-h-[60vh]">
             {/* Input Panel */}
             <Card className="w-full lg:w-1/2 bg-white/10 backdrop-blur-lg border-pink-500/20 shadow-xl shadow-purple-900/30">
               <div className="h-full p-4 md:p-6">
@@ -162,8 +162,8 @@ const VibeWriter = () => {
           </div>
 
           {/* Donation Section */}
-          <div className="mt-6 md:mt-8 text-center">
-            <Card className="inline-block bg-white/5 backdrop-blur-sm border-pink-500/20 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="mt-6 md:mt-8 text-center relative z-10">
+            <Card className="inline-block bg-white/5 backdrop-blur-sm border-pink-500/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-[90vw] mx-auto">
               <div className="p-4 md:p-6 flex flex-col items-center gap-4">
                 <h3 className="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
                   Support VibeWriter
@@ -186,8 +186,8 @@ const VibeWriter = () => {
           </div>
 
           {/* Privacy Disclaimer */}
-          <div className="mt-8 text-center">
-            <Card className="inline-block bg-white/5 backdrop-blur-sm border-purple-500/10 shadow-sm">
+          <div className="mt-8 text-center mb-4">
+            <Card className="inline-block bg-white/5 backdrop-blur-sm border-purple-500/10 shadow-sm max-w-[90vw] mx-auto">
               <div className="p-4 max-w-2xl mx-auto">
                 <p className="text-sm text-purple-200/70 leading-relaxed">
                   <span className="font-semibold text-pink-200">Privacy Notice:</span> VibeWriter processes all text transformations in real-time using Anthropic's Claude API and does not store any user data or content. Your thoughts remain private and are discarded immediately after processing. All AI interactions are governed by{' '}
