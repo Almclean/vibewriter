@@ -130,6 +130,7 @@ const VibeWriter = () => {
                   placeholder="Enter your stream of consciousness..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
+                  onPaste={(e) => e.preventDefault()}
                   disabled={isGenerating}
                 />
               </div>
