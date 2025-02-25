@@ -83,7 +83,7 @@ describe('VibeWriter Component', () => {
 
   test('shows loading state during generation', async () => {
     // Delay the mock implementation to simulate loading
-    (generateVibeText as any).mockImplementation(async (input) => {
+    (generateVibeText as any).mockImplementation(async (input : String) => {
       await new Promise(resolve => setTimeout(resolve, 100));
       return `This is a mock vibe transformation of: "${input}"`;
     });
