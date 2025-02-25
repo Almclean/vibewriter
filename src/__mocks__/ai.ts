@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 export const generateVibeText = vi.fn().mockImplementation(async (input: string) => {
   // Return a mock response based on the input
   if (!input.trim()) {
